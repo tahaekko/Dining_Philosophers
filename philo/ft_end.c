@@ -6,7 +6,7 @@
 /*   By: msamhaou <msamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 08:47:46 by msamhaou          #+#    #+#             */
-/*   Updated: 2023/04/02 12:03:27 by msamhaou         ###   ########.fr       */
+/*   Updated: 2023/04/02 15:10:06 by msamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	ft_free_end(t_phil **philo, t_envment *envm)
 		free(envm->forks);
 	if (philo)
 		ft_free_all(philo);
+	if (envm)
+		free(envm);
 	pthread_mutex_destroy(&envm->d_mutex);
 	pthread_mutex_destroy(&envm->w_mutex);
 }

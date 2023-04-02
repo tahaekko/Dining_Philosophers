@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo_utils_plus.c                                 :+:      :+:    :+:   */
+/*   ft_philostate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msamhaou <msamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 13:37:53 by msamhaou          #+#    #+#             */
-/*   Updated: 2023/04/02 11:57:27 by msamhaou         ###   ########.fr       */
+/*   Updated: 2023/04/02 15:09:09 by msamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,12 @@ int	ft_check_death_plus(t_phil *philo, t_envment *envm)
 		pthread_mutex_lock(&envm->w_mutex);
 		printf("%zu %d died\n", ft_get_time()
 			- envm->start_time, philo->pos + 1);
+		pthread_mutex_unlock(&envm->w_mutex);
+		envm->alive = 0;
 		pthread_mutex_unlock(&envm->d_mutex);
 		return (1);
 	}
+	pthread_mutex_unlock(&envm->d_mutex);
 	return (0);
 }
 
@@ -52,7 +55,6 @@ int	ft_check_death(t_phil **philo, t_envment *envm)
 			if (ft_check_death_plus(philo[i], envm))
 				return (1);
 			i++;
-			pthread_mutex_unlock(&envm->d_mutex);
 		}
 	}
 	return (0);

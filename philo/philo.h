@@ -6,7 +6,7 @@
 /*   By: msamhaou <msamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 12:22:51 by msamhaou          #+#    #+#             */
-/*   Updated: 2023/04/02 11:59:52 by msamhaou         ###   ########.fr       */
+/*   Updated: 2023/04/02 14:48:50 by msamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_envment
 	int				time_to_sleep;
 	int				must_eat;
 	int				done_eat;
+	int				alive;
 	size_t			start_time;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	w_mutex;

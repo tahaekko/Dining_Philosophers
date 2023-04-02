@@ -6,7 +6,7 @@
 /*   By: msamhaou <msamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 09:49:20 by msamhaou          #+#    #+#             */
-/*   Updated: 2023/04/02 11:59:49 by msamhaou         ###   ########.fr       */
+/*   Updated: 2023/04/02 14:49:04 by msamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int	ft_init(t_envment *envm, char **av, int ac)
 	if (ac == 6)
 		envm->must_eat = ft_atoi(av[5]);
 	envm->done_eat = 0;
+	envm->alive = 1;
 	if (ft_mutex_init(envm) != 0)
 		return (1);
 	return (0);

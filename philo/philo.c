@@ -6,7 +6,7 @@
 /*   By: msamhaou <msamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 05:32:51 by msamhaou          #+#    #+#             */
-/*   Updated: 2023/04/02 12:03:00 by msamhaou         ###   ########.fr       */
+/*   Updated: 2023/04/02 15:12:49 by msamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ static void	*routine(void *parg)
 		usleep(400);
 	while (1)
 	{
+		if (!philo->envm->alive)
+			return (NULL);
 		ft_eat(philo);
 		ft_usleep(philo->envm->time_to_eat);
 		pthread_mutex_unlock(&philo->envm->forks[philo->left_fork]);
@@ -65,8 +67,7 @@ int	main(int ac, char **av)
 		return (ft_free_end(philo, envment), 1);
 	if (ft_thread_create(philo, envment) != 0)
 		return (ft_free_end(philo, envment), 1);
-	if (ft_check_death(philo, envment) == 1)
-		return (ft_free_end(philo, envment), 0);
+	ft_check_death(philo, envment);
 	ft_thread_join(philo);
 	ft_free_end(philo, envment);
 	return (0);

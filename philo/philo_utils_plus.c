@@ -6,13 +6,11 @@
 /*   By: msamhaou <msamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 13:37:53 by msamhaou          #+#    #+#             */
-/*   Updated: 2023/04/02 09:51:18 by msamhaou         ###   ########.fr       */
+/*   Updated: 2023/04/02 14:54:52 by msamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-
 
 int	ft_atoi(char *str)
 {
