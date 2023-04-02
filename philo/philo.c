@@ -6,7 +6,7 @@
 /*   By: msamhaou <msamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 05:32:51 by msamhaou          #+#    #+#             */
-/*   Updated: 2023/04/02 15:12:49 by msamhaou         ###   ########.fr       */
+/*   Updated: 2023/04/02 15:21:10 by msamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,12 @@ int	main(int ac, char **av)
 	t_envment	*envment;
 	t_phil		**philo;
 
-	envment = (t_envment *)malloc(sizeof(t_envment));
 	if (ac < 5 || ac > 6)
 		return (1);
-	philo = NULL;
 	if (ft_check_arg(av))
 		return (1);
+	philo = NULL;
+	envment = (t_envment *)malloc(sizeof(t_envment));
 	if (ft_init(envment, av, ac))
 		return (ft_free_end(philo, envment), 1);
 	philo = ft_philo_init(envment);
