@@ -6,7 +6,7 @@
 /*   By: msamhaou <msamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 12:22:51 by msamhaou          #+#    #+#             */
-/*   Updated: 2023/04/01 12:56:44 by msamhaou         ###   ########.fr       */
+/*   Updated: 2023/04/02 11:40:52 by msamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 typedef struct s_envment
 {
 	int				num_of_philo;
-	int				time_to_die;
+	size_t			time_to_die;
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				must_eat;
@@ -53,16 +53,19 @@ typedef struct s_phil
 }	t_phil;
 
 int		ft_check_arg(char **av);
+int		ft_init(t_envment *envm, char **av, int ac);
+t_phil	**ft_philo_init(t_envment *envm);
+void	ft_eat(t_phil *philo);
+int		ft_check_death(t_phil **philo, t_envment *envm);
+int		ft_check_meal(t_phil *philo);
+int		ft_thread_create(t_phil **philo, t_envment *envm);
+void	*routine(void *parg);
 int		ft_print_message(t_phil *philo, t_envment *envment, int type);
 size_t	ft_get_time(void);
 int		ft_atoi(char *str);
 void	ft_free_philo(t_phil **philo, int pos);
-t_phil	**ft_philo_malloc(t_envment *envm);
 void	ft_usleep(size_t ms);
-void	ft_eat(t_phil *philo);
-int		ft_mutex_init(t_envment *envm);
-int	ft_check_death(t_phil **philo, t_envment *envm);
-int	ft_thread_join(t_phil **philo);
+int		ft_thread_join(t_phil **philo);
 void	ft_free_end(t_phil **philo, t_envment *envm);
 
 #endif
