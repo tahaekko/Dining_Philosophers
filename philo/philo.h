@@ -6,7 +6,7 @@
 /*   By: msamhaou <msamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 12:22:51 by msamhaou          #+#    #+#             */
-/*   Updated: 2023/04/02 11:40:52 by msamhaou         ###   ########.fr       */
+/*   Updated: 2023/04/02 11:59:52 by msamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,6 @@ t_phil	**ft_philo_init(t_envment *envm);
 void	ft_eat(t_phil *philo);
 int		ft_check_death(t_phil **philo, t_envment *envm);
 int		ft_check_meal(t_phil *philo);
-int		ft_thread_create(t_phil **philo, t_envment *envm);
-void	*routine(void *parg);
 int		ft_print_message(t_phil *philo, t_envment *envment, int type);
 size_t	ft_get_time(void);
 int		ft_atoi(char *str);

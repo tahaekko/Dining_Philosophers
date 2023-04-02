@@ -6,20 +6,11 @@
 /*   By: msamhaou <msamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 09:49:20 by msamhaou          #+#    #+#             */
-/*   Updated: 2023/04/02 10:36:29 by msamhaou         ###   ########.fr       */
+/*   Updated: 2023/04/02 11:59:49 by msamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-void	ft_eat(t_phil *philo)
-{
-	pthread_mutex_lock(&philo->envm->forks[philo->left_fork]);
-	ft_print_message(philo, philo->envm, TAKE);
-	pthread_mutex_lock(&philo->envm->forks[philo->right_fork]);
-	ft_print_message(philo, philo->envm, TAKE);
-	ft_print_message(philo, philo->envm, EAT);
-}
 
 static int	ft_mutex_init(t_envment *envm)
 {

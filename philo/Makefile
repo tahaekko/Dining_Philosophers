@@ -3,7 +3,7 @@ CC = cc
 FLAGS = -Wall -Werror -Wextra
 NAME = philo
 
-SRC = philo.c	philo_utils.c	philo_utils_plus.c	ft_init.c	ft_check_arg.c	ft_end.c
+SRC = philo.c	philo_utils.c	ft_philostate.c	ft_init.c	ft_check_arg.c	ft_end.c
 OBJ = $(SRC:.c=.o)
 
 all : $(NAME)
