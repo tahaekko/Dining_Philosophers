@@ -6,13 +6,13 @@
 /*   By: msamhaou <msamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 13:37:53 by msamhaou          #+#    #+#             */
-/*   Updated: 2023/04/03 08:32:27 by msamhaou         ###   ########.fr       */
+/*   Updated: 2023/04/03 08:42:17 by msamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	 ft_eat(t_phil *philo)
+void	ft_eat(t_phil *philo)
 {
 	pthread_mutex_lock(&philo->envm->forks[philo->left_fork]);
 	ft_print_message(philo, philo->envm, TAKE);
@@ -21,11 +21,20 @@ void	 ft_eat(t_phil *philo)
 	ft_print_message(philo, philo->envm, EAT);
 }
 
-// static int	ft_check_death_plus(t_phil *philo, t_envment *envm)
-// {
-	
-// 	return (0);
-// }
+static int	ft_check_death_plus(t_phil *philo, t_envment *envm)
+{
+	if ((ft_get_time() - philo->eat_limit) > envm->time_to_die)
+	{
+		pthread_mutex_lock(&envm->w_mutex);
+		envm->alive = 0;
+		printf("%zu %d died\n", ft_get_time()
+			- envm->start_time, philo->pos + 1);
+		pthread_mutex_unlock(&envm->w_mutex);
+		pthread_mutex_unlock(&envm->d_mutex);
+		return (1);
+	}
+	return (0);
+}
 
 int	ft_check_death(t_phil **philo, t_envment *envm)
 {
@@ -42,14 +51,9 @@ int	ft_check_death(t_phil **philo, t_envment *envm)
 				pthread_mutex_unlock(&envm->d_mutex);
 				return (0);
 			}
-			if ((ft_get_time() - philo[i]->eat_limit) > envm->time_to_die)
+			if (ft_check_death_plus(philo[i], envm))
 			{
-				pthread_mutex_lock(&envm->w_mutex);
-				envm->alive = 0;
-				printf("%zu %d died\n", ft_get_time()
-					- envm->start_time, philo[i]->pos + 1);
-				pthread_mutex_unlock(&envm->w_mutex);
-				pthread_mutex_unlock(&envm->d_mutex);
+				usleep(1000);
 				return (1);
 			}
 			pthread_mutex_unlock(&envm->d_mutex);
