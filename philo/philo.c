@@ -6,7 +6,7 @@
 /*   By: msamhaou <msamhaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 05:32:51 by msamhaou          #+#    #+#             */
-/*   Updated: 2023/04/02 16:24:32 by msamhaou         ###   ########.fr       */
+/*   Updated: 2023/04/03 09:00:44 by msamhaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ int	main(int ac, char **av)
 		return (ft_free_end(philo, envment), 1);
 	ft_check_death(philo, envment);
 	ft_thread_join(philo);
-	exit(1);
 	ft_free_end(philo, envment);
 	return (0);
 }

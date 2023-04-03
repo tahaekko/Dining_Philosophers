@@ -1,6 +1,6 @@
 
 CC = cc
-FLAGS = -Wall -Werror -Wextra #-g -fsanitize=thread
+FLAGS = -Wall -Werror -Wextra
 NAME = philo
 
 SRC = philo.c	philo_utils.c	ft_philostate.c	ft_init.c	ft_check_arg.c	ft_end.c
