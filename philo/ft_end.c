@@ -34,9 +34,6 @@ static void	ft_free_all(t_phil **philo)
 
 void	ft_free_end(t_phil **philo, t_envment *envm)
 {
-	int	i;
-
-	i = 0;
 	if (envm->forks)
 		free(envm->forks);
 	if (philo)
